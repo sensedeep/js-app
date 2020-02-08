@@ -11,7 +11,11 @@ export default class VuApp {
     constructor(config) {
         this.config = config
         this.started = new Date()
-        global.log = this.log = new Log(config.log.endpoint, {source: config.name})
+        global.log = this.log = new Log(config.log)
+        log.info(`Starting ${config.name} ${config.version} in "${config.profile}" mode`)
+        if (config.api) {
+            log.info(`Using API ${config.api}`)
+        }
     }
 
     define(props) {

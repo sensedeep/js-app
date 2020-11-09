@@ -30,5 +30,15 @@ export default class VuApp {
         })
     }
 
+    async renderDom() {
+        return new Promise(function(resolve, reject) {
+            window.requestAnimationFrame(() => {
+                window.requestAnimationFrame(() => {
+                    resolve(true)
+                })
+            })
+        })
+    }
+
     nop() {}
 }

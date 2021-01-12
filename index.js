@@ -40,5 +40,9 @@ export default class VuApp {
         })
     }
 
+    hidden() {
+        return document.hidden || document.msHidden || document.webkitHidden || document.mozHidden
+    }
+
     nop() {}
 }
